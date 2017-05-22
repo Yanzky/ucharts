@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>试试</title>
+    <style>
+        body {
+            /*background-color: #0d1328;*/
+        }
+        .chart {
+            position: relative;
+            float: left;
+            width: 500px;
+            height: 500px;
+        }
+    </style>
+    <script src="../node_modules/babel-polyfill/dist/polyfill.min.js"></script>
+    <script src="../node_modules/d3/build/d3.js"></script>
+    <script src="../uchartlib.js"></script>
+</head>
+<body>
+    <div id="label" class="chart"></div>
+    <div id="fan" class="chart"></div>
+    <div id="pie" class="chart"></div>
+    <div id="rainbow" class="chart"></div>
+    <div id="tax" class="chart"></div>
+
+
+    <script>
+        var props = {width: 600, height: 400, backgroundColor: '#0d1327', duration: 2000};
+
+        var label = new UCL.BeautyLabel('#label', props);
+        label.render([['税收户', 239999], ['社保户', 9877654]]);
+
+        var fan = new UCL.ColorFan('#fan', props);
+        fan.render([['风险户数量', 11747], ['总疑点数', 19736],
+                    ['应对中疑点', 340], ['已应对疑点', 8703], ['实现税款', 135693]]);
+//        setInterval(function(){
+//            fan.render([['风险户数量', Math.floor(Math.random() * 10000 + 10000)], ['总疑点数', Math.floor(Math.random() * 10000 + 10000)], ['未应对疑点', Math.floor(Math.random() * 10000 + 10000)],
+//                    ['应对中疑点', Math.floor(Math.random() * 1000 + 100)], ['已应对疑点', Math.floor(Math.random() * 8000 + 800)]]);
+//        }, 5000);
+
+        var pie = new UCL.CategoryPie('#pie', props);
+        var pd1 = [
+            ['水利建设基金', 100000, '基金'],
+            ['残疾人就业保障金', 30000, '基金'],
+            ['文化事业建设费', 50000, '基金'],
+            ['工会经费', 60000, '基金'],
+
+            ['基本养老保险费', 120000, '社保费'],
+            ['基本医疗保险费', 10000, '社保费'],
+            ['工伤保险费', 500000, '社保费'],
+            ['失业保费险', 30000, '社保费'],
+        ];
+        var pd2 = [
+            ['水利建设基金', 100000, '基金'],
+            ['残疾人就业保障金', 60000, '基金'],
+            ['文化事业建设费', 50000, '基金'],
+
+            ['基本养老保险费', 120000, '社保费'],
+            ['工伤保险费', 80000, '社保费'],
+            ['失业保费险', 50000, '社保费'],
+
+            ['基本养老保险费', 60000, '无此项'],
+            ['工伤保险费', 20000, '无此项'],
+            ['失业保费险', 90000, '无此项'],
+
+        ];
+        pie.render(pd1);
+//        var pflag;
+//        setInterval(function(){
+//            pflag = !pflag;
+//            pflag ? pie.render(pd2) : pie.render(pd1);
+//        }, 5000);
+
+        // 彩虹
+        var rainbow = new UCL.RainbowJ('#rainbow', props);
+        var rb1 = [['纯缴费户', 78565152], ['个人灵活就业', 53565196], ['税费同征户', 6578152]];
+        var rb2 = [['纯缴费户', 7855152], ['个人灵活就业', 93565196], ['税费同征户', 1578152], ['测试用', 3578152]]
+        rainbow.render(rb1);
+        var rbflag;
+//        setInterval(function(){
+//            rbflag = !rbflag;
+//            rbflag ? rainbow.render(rb2): rainbow.render(rb1);
+//        }, 5000);
+
+        // 重点税源
+        var tax = new UCL.SXShuiYuan('#tax', props);
+        var taxData = [['税收收入', 3467890], ['户数', 12987], ['税收占比', '30%']];
+        tax.render(taxData);
+//        setInterval(function(){ tax.render(taxData) }, 5000);
+    </script>
+</body>
+</html>
