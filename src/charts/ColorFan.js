@@ -76,7 +76,7 @@ export default class ColorFan extends ChartBase {
                 .outerRadius(innerR);
 
         // 移动原点坐标  to-do根据角度范围计算垂直方向的移动
-        ctx.translate(width / 2, height - padding);
+        ctx.translate(width / 2, height - 2*padding);
 
         fans.each(function(d, i, dlist){
             let fan = select(this), attrs, startAngle, endAngle;
@@ -145,7 +145,7 @@ export default class ColorFan extends ChartBase {
                 innerRadius: outerStart,
                 outerRadius: R
             });
-            fontSize = r * 5 / 5;
+            fontSize = r * 5 / 4;
             fontScale = 1;
             // Chrome浏览器最小字体是12px，通过缩放手段解决
             if (fontSize < 12) {
@@ -162,12 +162,13 @@ export default class ColorFan extends ChartBase {
             ctx.translate(cx, cy);
             ctx.rotate(-Math.PI / 2);
             ctx.scale(fontScale, fontScale);
-            if(attrs.label == "实现税款") {
-                var value = (attrs.value).toFixed(2) + "亿元"
-                writeTextOnCanvas(ctx,20,8,value,0,0)
-            } else {
-                ctx.fillText(attrs.value, 0, 0);
-            }
+            // if(attrs.label == "实现税款") {
+            //     var value = (attrs.value).toFixed(2) + "亿元"
+            //     writeTextOnCanvas(ctx,20,8,value,0,0)
+            // } else {
+            //     ctx.fillText(attrs.value, 0, 0);
+            // }
+            ctx.fillText(attrs.value, 0, 0);
             ctx.restore();
         });
     }

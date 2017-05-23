@@ -202,15 +202,16 @@ export default class SXShuiYuan extends ChartBase {
             ctx.fillText(d[0], 0, 0);
             // 数值
             ctx.textBaseline = 'top';
-            if(d[0] == "户数") {
-                var value = d[1].toLocaleString() + "户"
-                ctx.fillText(value, 0, 0);
-            } else if (d[0] == "税收收入") {
-                var value = d[1].toLocaleString() + "亿"
-                ctx.fillText(value, 0, 0);
-            } else {
-                ctx.fillText(d[1], 0, 0);
-            }
+            // if(d[0] == "户数") {
+            //     var value = d[1].toLocaleString() + "户"
+            //     ctx.fillText(value, 0, 0);
+            // } else if (d[0] == "税收收入") {
+            //     var value = d[1].toLocaleString() + "亿"
+            //     ctx.fillText(value, 0, 0);
+            // } else {
+            //     ctx.fillText(d[1], 0, 0);
+            // }
+            ctx.fillText(d[1], 0, 0);
             ctx.restore();
         });
 

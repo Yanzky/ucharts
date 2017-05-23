@@ -112,7 +112,8 @@ export default class BeautyLabel extends ChartBase {
             ctx.textAlign = 'center';
             ctx.fillText(d[0], x + s, y + h/2);
             ctx.textAlign = 'start';
-            ctx.fillText(d[1].toLocaleString() + '户', x + 3.4 * s, y2 + h2/2);
+            // ctx.fillText(d[1].toLocaleString() + '户', x + 3.4 * s, y2 + h2/2);
+            ctx.fillText(d[1], x + 3.4 * s, y2 + h2/2);
         });
     }
 }

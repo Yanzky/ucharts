@@ -119,7 +119,7 @@ export default class RainbowJ extends ChartBase {
             ctx.restore();
 
             // 绘制文字
-            let fontSize = attrs.width / 5 * 4;
+            let fontSize = attrs.width / 5 * 3;
             let fontScale = 1;
             if (fontSize < 12) {
                 fontScale = fontSize / 12;
@@ -142,6 +142,9 @@ export default class RainbowJ extends ChartBase {
 //             ctx.fillText(attrs.value, -tm.width, 0);
             let value = attrs.value.toLocaleString() + "户"
             ctx.fillText(value, attrs.textX, 0);
+
+            // ctx.fillText(attrs.value, attrs.textX, 0);
+
             ctx.restore();
             //  文字连线
             // let lineY = attrs.textY - fontSize * fontScale / 2;
